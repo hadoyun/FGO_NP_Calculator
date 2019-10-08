@@ -1,13 +1,7 @@
 #pragma once
 #include "Header.h"
 
-/*struct Servent
-{
-	Servent() {};
-	~Servent() {};
 
-
-};*/
 
 //카드 타입
 enum class e_card_type

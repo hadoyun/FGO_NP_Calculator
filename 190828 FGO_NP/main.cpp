@@ -8,17 +8,19 @@
 
 int main()
 {
+	
+
 		cout << "FGO 대군 보구 대미지 계산기!" << endl;
 
 		//입력해야하는 서번트 파라메터 초기화 및 선언
 		int atk{};
-		string servant_class{};
+		int servant_class{};
 		string servant_hidden{};
 		int np_level{};
 		string enhance{};
 		string np_type{};
 		string hidden{};
-		string count{};
+		string counter{};
 		string special_count{};
 
 		cout << "서번트 공격력을 입력해주세요." << endl;
@@ -34,7 +36,7 @@ int main()
 		cout << "서번트 보구 종류를 입력해주세요. ex) 버스터, 아츠, 퀵" << endl;
 		cin >> np_type;
 		cout << "상대 서번트의 클래스와 상성입니까? yes / no" << endl;
-		cin >> count;
+		cin >> counter;
 		cout << "클래스가 버서커나 혹은 얼터에고 상성입니까? yes / no" << endl;
 		cin >> special_count;
 
@@ -46,7 +48,7 @@ int main()
 		CONVERSERSION(hidden, is_hidden);
 
 		bool is_count{ false };
-		CONVERSERSION(count, is_count);
+		CONVERSERSION(counter, is_count);
 
 		bool is_special_count{ false };
 		CONVERSERSION(special_count, is_special_count);
@@ -55,7 +57,7 @@ int main()
 
 		for (int i = 0; i < 11; ++i)
 		{
-			if (servant_class == g_Servant_class[i])
+			if (servant_class == (int)e_servant_class e_class)
 			{
 				conversion_class = i;
 			}
