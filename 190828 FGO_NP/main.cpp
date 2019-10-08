@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <conio.h>
 
-#define CONVERSERSION(a,b) if (a == "yes"){b = true;}else if (a == "no") { b = false; };
+#define BOOLEN_CONVERSERSION(a,b) if (a == 0) b == true; else a == false;
 
 //TODO .. FGO 서번트 입력 / FGO 보구(레벨에 따른)딜 확인
 
@@ -14,80 +14,46 @@ int main()
 
 		//입력해야하는 서번트 파라메터 초기화 및 선언
 		int atk{};
+		cout << "서번트 공격력을 입력해주세요.";
+		
 		int servant_class{};
-		string servant_hidden{};
+		cout << "서번트 클래스를 입력해주세요. 숫자로 입력해주세요." << endl;
+		cout << "0. 세이버, 1. 아처, 2. 랜서, 3. 라이더, 4. 캐스터, 5. 어쌔신, 6. 버서커,";
+		cout <<	". 룰러, 8. 어벤저, 9. 문캔서, 10. 얼터에고, 11 포리너,";
+		
+		int servant_hidden{};
+		cout << "서번트 히든 속성을 숫자로 입력해주세요. 0 = 천 지 인  3 =별";
+		
 		int np_level{};
-		string enhance{};
-		string np_type{};
-		string hidden{};
-		string counter{};
-		string special_count{};
+		cout << "서번트 보구 레벨을 입력해주세요.";
+		
 
-		cout << "서번트 공격력을 입력해주세요." << endl;
-		cin >> atk;
-		cout << "서번트 클래스를 입력해주세요." << endl;
-		cin >> servant_class;
-		cout << "서번트 히든 속성을 입력해주세요." << endl;
-		cin >> servant_hidden;
-		cout << "서번트 보구 레벨을 입력해주세요." << endl;
-		cin >> np_level;
-		cout << "서번트 강화 여부를 입력해주세요. yes / no" << endl;
-		cin >> enhance;
-		cout << "서번트 보구 종류를 입력해주세요. ex) 버스터, 아츠, 퀵" << endl;
-		cin >> np_type;
-		cout << "상대 서번트의 클래스와 상성입니까? yes / no" << endl;
-		cin >> counter;
-		cout << "클래스가 버서커나 혹은 얼터에고 상성입니까? yes / no" << endl;
-		cin >> special_count;
-
-
+		int enhance{};
 		bool is_enhance{ false };
-		CONVERSERSION(enhance, is_enhance);
+		cout << "서번트 강화 여부를 숫자로 입력해주세요. 0 = 강화 안함 1 = 강화함";
+		
+		BOOLEN_CONVERSERSION(enhance, is_enhance);
 
-		bool is_hidden{ false };
-		CONVERSERSION(hidden, is_hidden);
+		int np_type{};
+		cout << "서번트 보구 타입을 설정해주세요. 0 = 버스터, 1 = 아츠, 2 = 퀵";
 
-		bool is_count{ false };
-		CONVERSERSION(counter, is_count);
+		
+		int hidden{};
+		cout << "서번트의 히든 속성이 상성이라면 0 아니라면 1을 입력해주세요.";
+		bool is_hidden{false};
+		BOOLEN_CONVERSERSION(hidden, is_hidden);
 
-		bool is_special_count{ false };
-		CONVERSERSION(special_count, is_special_count);
+		int counter{};
+		cout << "상대 서번트가 상성 입력, 0. 서번트 ";
+		bool is_counter{ false };
+		BOOLEN_CONVERSERSION(counter, is_counter);
 
-		int conversion_class{};
-
-		for (int i = 0; i < 11; ++i)
-		{
-			if (servant_class == (int)e_servant_class e_class)
-			{
-				conversion_class = i;
-			}
-		}
-
-		int conversion_hidden{};
-
-		for (int i = 0; i < 4; ++i)
-		{
-			if (servant_hidden == g_Servant_hidden[i])
-			{
-				conversion_class = i;
-			}
-		}
-
-		int conversion_card_type{};
-
-		for (int i = 0; i < 3; ++i)
-		{
-			if (np_type == g_conversion_card_type[i])
-			{
-				conversion_card_type = i;
-			}
-		}
-
+		
 
 		CServantNpCal my_servant
 		{
-			CServantNpCal(atk, static_cast<e_servant_class>(conversion_class - 1 ), static_cast<e_hidden_type>(conversion_hidden -1)
-			, np_level, is_enhance, static_cast<e_card_type>(conversion_card_type - 1), is_hidden, is_count, is_special_count)
+			CServantNpCal(atk, static_cast<e_servant_class>(servant_class), static_cast<e_hidden_type>(servant_hidden)
+			, np_level, is_enhance, static_cast<e_card_type>(np_type), is_hidden, is_counter, is_special_count)
 		};
 
 

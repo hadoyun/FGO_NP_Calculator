@@ -161,6 +161,7 @@ float CServantNpCal::HiddenTypeCoef()
 	}
 }*/
 
+
 float CServantNpCal::HiddenTypeCoef()
 {
 	if (m_is_hidden_count == true)
